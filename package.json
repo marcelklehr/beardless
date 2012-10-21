@@ -1,0 +1,22 @@
+{
+  "name": "beardless",
+  "version": "0.0.1",
+  "description": "DSL-less html templating. No logic guaranteed!",
+  "dependencies": {
+    "jsdom": "*"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "node test"
+  },
+  "repository": "",
+  "keywords": [
+    "templating",
+    "template",
+    "templates",
+    "plates",
+    "weld"
+  ],
+  "author": "Marcel Klehr",
+  "license": "MIT"
+}
