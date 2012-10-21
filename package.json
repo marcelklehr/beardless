@@ -17,6 +17,9 @@
     "plates",
     "weld"
   ],
+  "devDependencies": {
+    "vows": "*"
+  },
   "author": "Marcel Klehr",
   "license": "MIT"
 }
