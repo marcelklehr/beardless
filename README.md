@@ -1,4 +1,5 @@
 # Beardless - DSL-less html templating engine for node.js
+[![Build Status](https://travis-ci.org/marcelklehr/beardless.png)](https://travis-ci.org/marcelklehr/beardless)
 
 ## Why?
 Ok, there's mustache, there's ejs, jade and some others I haven't looked at in detail. There are quite good templating engines out there allready, so why do I have to reinvent the wheel?  
