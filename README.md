@@ -1,16 +1,31 @@
 # Beardless - DSL-less html templating engine for node.js
 
 ## Why?
-Ok, there's mustache, there's ejs, jade and some others I haven't looked at in detail. There are quite good templating engines out there allready, so why do I have to reinvent the wheel?
+Ok, there's mustache, there's ejs, jade and some others I haven't looked at in detail. There are quite good templating engines out there allready, so why do I have to reinvent the wheel?  
 Now, let me get this straight from the start: I didn't reinvent the wheel.
+ 
 The majority of the existing templating engines implement some form of DSL. Mustache, for example, with it's nice {{mustache}} syntax, brags about being `logic-less`. But, by forcing you to use variables (and more importantly partial includes!), that you have to explicitly put somewhere in your template, you do end up squashing logic into your templates that you would want to have in your controller. This is critical, if you want to implement some plugin system, where plugins should be able to extend the user interface, because your templates limit the ability of plugins to extend the UI. You don't want this!
 Another problem, is the use of DSLs itself. By implementing their own meta-language that is incompatible to the HTML spec and other templating languages, todays templating engines make a designers life harder, having to learn and understand the different reincarnations of templating languages.
 
 I believe, the very idea of a 'templating language' is wrong.
 
-That's why I created **beardless**. Inspired by [plates](https://github.com/flatiron/plates) and utilizing [jsdom](https://github.com/tmpvar/jsdom), beardless lets you write your templates in pure, beardless HTML, while still providing all features you'd expect from an advanced templating engine (well, not quite yet, but stay tuned).
+That's why I created **beardless**.  
+Inspired by [plates](https://github.com/flatiron/plates) and utilizing [jsdom](https://github.com/tmpvar/jsdom), beardless lets you write your templates in pure, beardless HTML, while still providing all features you'd expect from an advanced templating engine (well, not quite yet, but stay tuned).
 
 ## Example
+
+Your params:
+```js
+{ title: "The template engine site"
+, post:
+  { title: "Next generation templating: Start shaving!"
+  , text: "TL;DR You should really check out beardless!"
+  , comments:
+    [ {text: "Hey cool!", author:"mike"}
+    , {text: "Really gotta check that out...", author:"steve"}  ]
+  }
+}
+```
 
 Your template:
 ```html
@@ -31,35 +46,22 @@ Your template:
 </html>
 ```
 
-Your params:
-```js
-{ title: "The template engine site"
-, post:
-  { title: "Shave your old templates for the next generation: Beardless templating!"
-  , text: "TL;DR You should really check out template!"
-  , comments:
-    [ {text: "Hey cool!", author:"mike"}
-    , {text: "Really gotta check that out...", author:"steve"}
-    ]
-}
-```
-
 Output:
-```
+```html
 <html>
   <head>
   <title>The template engine site</title>
   </head>
   <body>
-    <h1>Shave your old templates for the next generation: Beardless templating!</h1>
-    <p data-template="post.text">TL;DR You should really check out template!</p>
+    <h1>Next generation templating: Start shaving!</h1>
+    <p>TL;DR You should really check out beardless!</p>
     <div>
       <div class="comment">
         <p>Hey cool!</p>
         <p>mike</p>
       </div>
       <div class="comment">
-        <p>Hey cool!</p>
+        <p>Really gotta check that out...</p>
         <p>steve</p>
       </div>
     </div>
