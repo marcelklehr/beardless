@@ -1,6 +1,6 @@
 {
   "name": "beardless",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "DSL-less html templating. No logic guaranteed!",
   "dependencies": {
     "jsdom": "*"
