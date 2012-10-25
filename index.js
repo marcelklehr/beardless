@@ -1,3 +1,12 @@
+(function() {
+  // Patch jsdom/sizzle.js, until they finally switch to NWMatcher
+  // We patch this bug: https://github.com/tmpvar/jsdom/issues/523
+  var fs = require('fs')
+    , patchedSizzle = fs.readFileSync(__dirname+'/sizzle.patched.js')
+    , sizzlePath = __dirname+'/node_modules/jsdom/lib/jsdom/selectors/sizzle.js'
+  fs.writeFileSync(sizzlePath, patchedSizzle)
+})()
+
 var jsdom = require('jsdom')
 
 function beardless() {
